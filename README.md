@@ -40,7 +40,7 @@ max_adjust: 4
 - For the new `[stepper_y]` (Driver 1): `position_endstop` should be your maximum Z value. (315 for me, yours might be different. 310 should be a safe value)
 ```
 # Driver1
-[stepper_y] #stepper_x
+[stepper_y] #stepper_x # 300mm axis, stepper_x by default.  Currently referred to as the X axis by the LINEAR_MOTOR_CONTROL KlipperScreen and the MagnetoSuperTool. (x,y is defined by port on the ESP32 and can not be redefined AFAIK)
 step_pin: PF13
 dir_pin: PF12 #!PF12
 enable_pin: !PF14
@@ -53,7 +53,7 @@ position_max: 315
 homing_speed: 50
 
 # Driver0
-[stepper_x] #stepper_y
+[stepper_x] #stepper_y # 400mm axis, stepper_y by default.  Currently referred to as the Y axis by the LINEAR_MOTOR_CONTROL KlipperScreen and the MagnetoSuperTool. (x,y is defined by connection to the ESP32 and can not be redefined AFAIK)
 step_pin: PG0
 dir_pin: !PG1
 enable_pin: !PF15
@@ -226,7 +226,7 @@ shaper_freq_x: 27.0 #44.4
 ```
 
 ### If you have a beacon, flip the `home_xy_position` coordinates and switch the `x_offset` and `y_offset`.
-## At this point make sure all your macros have the coordinates flipped.
+## At this point make sure all your macros have the coordinates flipped. (Check your Macros.cfg, Beacon.c, etc)
 ## After saving and restarting, KlipperScreen and Mainsail X,Y move buttons should move in a more intutive direction. The origin should also be in the front left corner now.
 
 ## OrcaSlicer Changes
