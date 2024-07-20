@@ -116,6 +116,7 @@ zero_reference_position: 200, 150 #150,200
 
 ### 5. Z stepper changes
 - We want to rotate the z stepper definitions counter clockwise so that `stepper_z` is on the front left when you are facing the printer screen.
+- Please take note for the homing_retract_dist on `[stepper_z]` to make sure you are using the right one for you sensor.
 - `step_pin`, `dir_pin`, and `enable_pin` under `[stepper_z]` should be copied to the same variables in `[stepper_z1]`
 - `step_pin`, `dir_pin`, and `enable_pin` under `[stepper_z1]` should be copied to the same variables in `[stepper_z2]`
 - `step_pin`, `dir_pin`, and `enable_pin` under `[stepper_z2]` should be copied to the same variables in `[stepper_z3]`
@@ -151,7 +152,8 @@ position_max: 300
 position_min: -5
 homing_speed: 3
 second_homing_speed: 2
-homing_retract_dist: 0
+# homing_retract_dist: 0 # use this for beacon
+# homing_retract_dist: 3 # use this for default loadcell
 
 ##	Make sure to update below for your relevant driver (2208 or 2209)
 [tmc2209 stepper_z]
