@@ -7,9 +7,12 @@ All changes have the originall values near them.
 ```
 [quad_gantry_level]
 gantry_corners:
-  # XY flipped lead screw positions
-  -80.8,53.4
-  430.0,393.5
+  # XY flipped lead screw positions (max Y = 315)
+  -80.8,-38.4
+  430.0,408.5
+  # XY flipped lead screw positions Max Y = 300 (Note: the Y value of the gantry corner will change if you change MAX Y travel
+  #-80.8,-53.4
+  #430.0,393.5
   # normal lead screw positions
   #-93.5,-80.8
   #353.4,430.0
@@ -37,7 +40,7 @@ max_adjust: 4
 ```
 ### 2. XY stepper changes (`[stepper_y]` an `[stepper_x]`)
 - Change `[stepper_y]` to `[stepper_x]` and vice versa.
-- For the new `[stepper_y]` (Driver 1): `position_endstop` should be your maximum Z value. (315 for me, yours might be different. 310 should be a safe value)
+- For the new `[stepper_y]` (Driver 1): `position_endstop` should be your maximum Y travel distance. (Y=315 for me, yours might be different. Y=300 is the default)
 ```
 # Driver1
 [stepper_y] #stepper_x # 300mm axis, stepper_x by default.  Currently referred to as the X axis by the LINEAR_MOTOR_CONTROL KlipperScreen and the MagnetoSuperTool. (x,y is defined by port on the ESP32 and can not be redefined AFAIK)
